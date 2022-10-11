@@ -6,7 +6,12 @@ import sys
 
 # directory = r"D:\study\GoIT\cours\python_core\module_6\DZ\for_tests"
 # PATH = pathlib.Path(directory)
-PATH = pathlib.Path(sys.argv[1])
+if len(sys.argv) <2:
+    print("Please, enter dir")
+    exit()
+else:
+    PATH = pathlib.Path(sys.argv[1])  
+    print(PATH)  
 
 ########### create dict for cyrillic ###############
 def translator():
@@ -37,12 +42,12 @@ def normalize(f_name):
 ####### find all files in dir and call sort() ######################
 def recursive_iterdir(path):
     ''' ітеруємось по заданій папці і відправляємо кожен файл на обробку до функції sort'''     
-    if path.is_dir():
-        for element in path.iterdir():
-            if element.is_dir():
-                recursive_iterdir(element)
-            else:    
-                sort(element)  # send D:\study\GoIT\cours\python_core\module_6\DZ\for_tests\folder2\folder2_2\folder2_2_1\dfdfd.docx
+    
+    for element in path.iterdir():
+        if element.is_dir():
+            recursive_iterdir(element)
+        else:    
+            sort(element)  # send D:\study\GoIT\cours\python_core\module_6\DZ\for_tests\folder2\folder2_2\folder2_2_1\dfdfd.docx
                 
         
 
@@ -96,10 +101,14 @@ def cleaner(path):
     
     
 def main_fun():
-    recursive_iterdir(PATH)
-    cleaner(PATH)
-
+    global PATH
+    if PATH.is_dir():
+        recursive_iterdir(PATH)
+        cleaner(PATH)
+    else:
+        print(f"There is no such dir: {PATH}")
 
 if __name__ == '__main__':
     main_fun()
+    print("Finish")
 
