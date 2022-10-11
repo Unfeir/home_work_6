@@ -95,19 +95,11 @@ def cleaner(path):
 
     
     
-if __name__ == '__main__':
+def main_fun():
     recursive_iterdir(PATH)
     cleaner(PATH)
 
 
-# sort(path2)
-# file = r"D:\study\GoIT\cours\python_core\module_6\DZ\new_dir\test_1.txt"
-# directory1 = r"D:\study\GoIT\cours\python_core\module_6\DZ\new_dir"
-# directory2 = r"D:\study\GoIT\cours\python_core\module_6\DZ\new_dir\other"
-# pathf = pathlib.Path(file)
-# pathd1 = pathlib.Path(directory1)
-# pathd2 = pathlib.Path(directory2)
-# pathf.rename(pathd2 / pathf.name)
-
-# cleaner(pathd1)
+if __name__ == '__main__':
+    main_fun()
 
